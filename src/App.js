@@ -1,24 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { Link, Route, Routes } from "react-router-dom";
+import AmmendFetch from "./pages/AmmendFetch";
+import Fetch from "./pages/Fetch";
+import { PromiseAll } from "./pages/PromiseAll";
+import "./style.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <section className="mainwrapper">
+      <nav>
+        <ul>
+          <li>
+            <Link to="/fetch">Fetch</Link>
+          </li>
+          <li>
+            <Link to="/promiseall">Promise All</Link>
+          </li>
+          <li>
+            <Link to="/ammendfetch">Føj andet til din fetch</Link>
+          </li>
+        </ul>
+      </nav>
+      <Routes>
+        <Route path="/" element={<h1>Home sweet home</h1>} />
+        <Route path="/fetch" element={<Fetch />} />
+        <Route path="/promiseall" element={<PromiseAll />} />
+        <Route path="/ammendfetch" element={<AmmendFetch />} />
+        <Route path="*" element={<h1>Det du leder efter skal du lede længe efter</h1>} />
+      </Routes>
+    </section>
   );
 }
 
